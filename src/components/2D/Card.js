@@ -1,16 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import React from "react";
 
-export default function ThingCard({
+export default function Card({
   title,
   description,
   video,
   mediaSource,
   textBlack,
+  link
 }) {
   return (
-    <div className="my-3 mr-3 p-4 w-fit min-w-[16rem] h-[22rem] relative overflow-hidden rounded-md">
+    <Link href={link} className="my-3 mr-3 p-4 w-fit min-w-[16rem] h-[22rem] relative overflow-hidden rounded-md">
       {video === true ? (
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
@@ -37,6 +39,6 @@ export default function ThingCard({
         <p className="text-2xl">{title}</p>
         <p className="text-sm">{description}</p>
       </div>
-    </div>
+    </Link>
   );
 }

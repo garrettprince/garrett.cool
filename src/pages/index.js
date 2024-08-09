@@ -2,6 +2,7 @@ import Nav from "../components/2D/Nav";
 import Hero from "../components/2D/Hero";
 import ThingsContainer from "../components/2D/ThingContainer";
 import WritingContainer from "../components/2D/WritingContainer";
+import ImageToAscii from "../components/2D/ImageToAscii";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <ThingsContainer />
       <WritingContainer />
+      <ImageToAscii />
     </main>
   );
 }
