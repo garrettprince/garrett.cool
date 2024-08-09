@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
 const ImageToAsciiConverter = () => {
-  const [asciiArt, setAsciiArt] = useState('');
-  const [fullAsciiArt, setFullAsciiArt] = useState('');
-  const [imagePreview, setImagePreview] = useState('');
+  const [asciiArt, setAsciiArt] = useState("");
+  const [fullAsciiArt, setFullAsciiArt] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const fileInputRef = useRef(null);
 
-  const ASCII_CHARS = ['@', '#', 'S', '%', '?', '*', '+', ';', ':', ',', '.'];
+  const ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."];
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -25,18 +25,18 @@ const ImageToAsciiConverter = () => {
   const convertToAscii = (imageSrc) => {
     const img = new Image();
     img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
       const scaleFactor = 0.1;
-      const asciiWidth = Math.floor(img.width * scaleFactor * 2);
-      const asciiHeight = Math.floor(img.height * scaleFactor);
+      const asciiWidth = Math.floor((img.width * scaleFactor) / 2);
+      const asciiHeight = Math.floor((img.height * scaleFactor) / 2);
 
       canvas.width = asciiWidth;
       canvas.height = asciiHeight;
       ctx.drawImage(img, 0, 0, asciiWidth, asciiHeight);
 
       const imageData = ctx.getImageData(0, 0, asciiWidth, asciiHeight);
-      let asciiImage = '';
+      let asciiImage = "";
 
       for (let y = 0; y < asciiHeight; y++) {
         for (let x = 0; x < asciiWidth; x++) {
@@ -45,14 +45,16 @@ const ImageToAsciiConverter = () => {
           const g = imageData.data[offset + 1];
           const b = imageData.data[offset + 2];
           const brightness = (r + g + b) / 3;
-          const charIndex = Math.floor(brightness / 255 * (ASCII_CHARS.length - 1));
+          const charIndex = Math.floor(
+            (brightness / 255) * (ASCII_CHARS.length - 1)
+          );
           asciiImage += ASCII_CHARS[charIndex];
         }
-        asciiImage += '\n';
+        asciiImage += "\n";
       }
 
       setFullAsciiArt(asciiImage);
-      setAsciiArt('');
+      setAsciiArt("");
       setIsStreaming(true);
     };
     img.src = imageSrc;
@@ -91,7 +93,7 @@ const ImageToAsciiConverter = () => {
         </div>
       )}
       {(asciiArt || isStreaming) && (
-        <pre className="p-4 rounded overflow-x-auto whitespace-pre text-xs">
+        <pre className="p-4 rounded overflow-x-auto whitespace-pre text-xs border w-96 mx-auto">
           {asciiArt}
         </pre>
       )}

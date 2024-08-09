@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export default function Nav() {
   return (
-    <div className=" w-full h-14 flex justify-between items-center px-3 sticky top-0 bg-black">
+    <div className=" w-full h-14 flex justify-between items-center px-3 sticky top-0 z-50 bg-black">
       <motion.div className=" h-14 w-14">
         <Canvas>
         <OrthographicCamera makeDefault position={[0, 0, 4]} zoom={19} />

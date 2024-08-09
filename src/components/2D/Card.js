@@ -9,13 +9,16 @@ export default function Card({
   video,
   mediaSource,
   textBlack,
-  link
+  link,
 }) {
   return (
-    <Link href={link} className="my-3 mr-3 p-4 w-fit min-w-[16rem] h-[22rem] relative overflow-hidden rounded-md">
+    <Link
+      href={link}
+      className="my-3 mr-3 p-4 w-fit min-w-[16rem] h-[22rem] relative overflow-hidden rounded-md"
+    >
       {video === true ? (
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+          className="absolute top-0 left-0 w-full h-full object-cover z-[-1] "
           autoPlay
           playsInline
           loop
@@ -25,8 +28,10 @@ export default function Card({
           Your browser does not support the video tag.
         </video>
       ) : (
+
+        // TODO: Add hover effect and figure out z-index with text
         <img
-          className="absolute top-0 left-0 right-0 w-full h-full object-cover z-[-1]"
+          className="absolute top-0 left-0 right-0 w-full h-full object-cover  hover:scale-[1.12] transition-all duration-500 z-[-1]"
           src={mediaSource}
         />
       )}

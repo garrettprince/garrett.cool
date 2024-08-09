@@ -10,7 +10,8 @@ export default function ThingsContainer() {
         <p className="text-xl">more</p>
       </div>
 
-      {/* Find out why this doesn't scroll horizontally */}
+
+      {/* TODO Hide horizontal scrollbar */}
       <div className="flex overflow-x-auto scrollbar-hide pl-3">
         {thingData.map((thing) => (
           <Card
