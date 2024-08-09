@@ -16,7 +16,7 @@ export default function FloatingHead({ }) {
 
   // Subscribe this component to the render-loop, animating the mesh every frame
   useFrame(() => {
-    meshRef.current.rotation.y += 0.005;
+    meshRef.current.rotation.y += 0.012;
   });
 
   return (
