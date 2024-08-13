@@ -1,6 +1,6 @@
 export const writingData = [
   {
-    title: "Audio Player",
+    title: "The problem with anthropomorphizing your AI",
     description: "A simple audio player",
     video: true,
     textBlack: true,
