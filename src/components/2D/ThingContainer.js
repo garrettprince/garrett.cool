@@ -5,8 +5,11 @@ import { thingData } from "@/data/thingData";
 export default function ThingsContainer() {
   return (
     <div className="my-20">
-      <div className="flex justify-between mx-3">
-        <h1 className="text-3xl">Things</h1>
+      <div className="flex justify-between items-center mx-3">
+        <div>
+            <h1 className="text-4xl">Things</h1>
+            {/* <p className="text-sm">Experiments, Components, Projects</p> */}
+        </div>
         <p className="text-xl">more</p>
       </div>
 

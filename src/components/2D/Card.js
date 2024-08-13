@@ -14,7 +14,7 @@ export default function Card({
   return (
     <Link
       href={link}
-      className="my-3 mr-3 p-5 w-fit min-w-[16rem] max-w-[16rem] h-[24rem] relative overflow-hidden rounded-xl group"
+      className="my-3 mr-3 p-6 w-fit min-w-[18rem] max-w-[18rem] h-[28rem] relative overflow-hidden rounded-xl group"
     >
       {video === true ? (
         <video
@@ -39,7 +39,7 @@ export default function Card({
           textBlack ? "text-black" : "text-white"
         }`}
       >
-        <p className="text-xl font-medium mb-1">{title}</p>
+        <p className="text-2xl font-medium mb-1">{title}</p>
         <p className="text-sm">{description}</p>
       </div>
     </Link>

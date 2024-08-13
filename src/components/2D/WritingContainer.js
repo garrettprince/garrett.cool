@@ -5,8 +5,8 @@ import { writingData } from "@/data/writingData";
 export default function WritingContainer() {
   return (
     <div className="my-20">
-      <div className="flex justify-between mx-3">
-        <h1 className="text-2xl">Writing</h1>
+      <div className="flex justify-between items-center mx-3">
+        <h1 className="text-4xl">Writing</h1>
         <p className="text-xl">more</p>
       </div>
 
