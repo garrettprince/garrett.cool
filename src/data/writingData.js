@@ -10,7 +10,7 @@ export const writingData = [
   },
   {
     title: "Los Leo",
-    description: "Music by the man himeself",
+    description: "Music by the man himself",
     video: false,
     textBlack: false,
     mediaSource:
@@ -18,8 +18,8 @@ export const writingData = [
     link: "/",
   },
   {
-    title: "Coding Thing",
-    description: "A simple coding thing",
+    title: "How to make your own creepy floating 3D head",
+    description: "Get ready to feel uncomfortable",
     video: true,
     textBlack: false,
     mediaSource:
