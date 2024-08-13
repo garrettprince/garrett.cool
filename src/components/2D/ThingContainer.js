@@ -6,7 +6,7 @@ export default function ThingsContainer() {
   return (
     <div className="my-20">
       <div className="flex justify-between mx-3">
-        <h1 className="text-2xl">Things</h1>
+        <h1 className="text-3xl">Things</h1>
         <p className="text-xl">more</p>
       </div>
 

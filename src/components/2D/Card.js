@@ -39,8 +39,8 @@ export default function Card({
           textBlack ? "text-black" : "text-white"
         }`}
       >
-        <p className="text-xl font-mono font-medium mb-1">{title}</p>
-        <p className="text-sm font-fk">{description}</p>
+        <p className="text-xl font-medium mb-1">{title}</p>
+        <p className="text-sm">{description}</p>
       </div>
     </Link>
   );
