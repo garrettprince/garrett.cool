@@ -14,11 +14,11 @@ export default function Card({
   return (
     <Link
       href={link}
-      className="my-3 mr-3 p-5 w-fit min-w-[16rem] max-w-[16rem] h-[24rem] relative overflow-hidden rounded-xl"
+      className="my-3 mr-3 p-5 w-fit min-w-[16rem] max-w-[16rem] h-[24rem] relative overflow-hidden rounded-xl group"
     >
       {video === true ? (
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover z-[-1] "
+          className="absolute top-0 left-0 w-full h-full object-cover transition-all duration-500 md:group-hover:scale-[1.10] z-[-1] "
           autoPlay
           playsInline
           loop
@@ -28,10 +28,8 @@ export default function Card({
           Your browser does not support the video tag.
         </video>
       ) : (
-
-        // TODO: Add hover effect and figure out z-index with text
         <img
-          className="absolute top-0 left-0 right-0 w-full h-full object-cover  hover:scale-[1.12] transition-all duration-500 z-[-1]"
+          className="absolute top-0 left-0 right-0 w-full h-full object-cover transition-all duration-500 md:group-hover:scale-[1.10] z-[-1]"
           src={mediaSource}
         />
       )}
@@ -41,8 +39,8 @@ export default function Card({
           textBlack ? "text-black" : "text-white"
         }`}
       >
-        <p className="text-xl mb-1">{title}</p>
-        <p className="text-sm">{description}</p>
+        <p className="text-xl font-mono font-medium mb-1">{title}</p>
+        <p className="text-sm font-fk">{description}</p>
       </div>
     </Link>
   );

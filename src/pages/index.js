@@ -6,7 +6,7 @@ import ImageToAscii from "../components/2D/ImageToAscii";
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col max-w-3xl mx-auto">
       <Nav />
       <Hero />
       <ThingsContainer />
