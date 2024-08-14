@@ -85,7 +85,7 @@ export default function Nav() {
       //   className={`w-full h-16 flex justify-between items-center px-3 bg-white sticky top-0 z-50 transition-all ease-in-out duration-[600ms] shadow-lg ${
       //     hideNav ? "-translate-y-full" : "translate-y-0"
       //   }`}
-      className={`w-full bg-white h-16 flex justify-between items-center px-3 bg-transparent backdrop-blur-[20px] backdrop-filter border-b border-black sticky top-0 z-50 transition-all ease-in-out duration-[500ms] ${
+      className={`w-full bg-[#F1F0EE] h-16 flex justify-between items-center px-3 border-b border-black sticky top-0 z-50 transition-all ease-in-out duration-[500ms] ${
         hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
       } ${menuOpen ? "h-screen" : "h-16"}`}
 

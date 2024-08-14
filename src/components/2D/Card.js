@@ -12,6 +12,7 @@ export default function Card({
   mediaSource,
   textBlack,
   link,
+  category,
 }) {
   return (
     <Link
@@ -50,8 +51,8 @@ export default function Card({
             textBlack ? "text-black" : "text-white"
           }`}
         >
-          <div className="h-6 bg-white border-black border rounded-md text-center text-sm pt-[0.2rem] px-2">
-            TUTORIAL
+          <div className="h-6 bg-white border-black text-black border rounded-md text-center text-sm pt-[0.15rem] px-2">
+            {category}
           </div>
           <motion.div
             initial={{ opacity: 0, x: -20 }}

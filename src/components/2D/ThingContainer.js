@@ -27,6 +27,7 @@ export default function ThingsContainer() {
             textBlack={thing.textBlack}
             mediaSource={thing.mediaSource}
             link={thing.link}
+            category={thing.category}
           />
         ))}
       </div>

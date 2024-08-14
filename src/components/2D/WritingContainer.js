@@ -25,6 +25,7 @@ export default function WritingContainer() {
             textBlack={writing.textBlack}
             mediaSource={writing.mediaSource}
             link={writing.link}
+            category={writing.category}
           />
         ))}
       </div>
