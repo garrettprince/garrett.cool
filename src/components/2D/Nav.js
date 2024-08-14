@@ -85,11 +85,14 @@ export default function Nav() {
       //   className={`w-full h-16 flex justify-between items-center px-3 bg-white sticky top-0 z-50 transition-all ease-in-out duration-[600ms] shadow-lg ${
       //     hideNav ? "-translate-y-full" : "translate-y-0"
       //   }`}
+      className={`w-full bg-white h-16 flex justify-between items-center px-3 bg-transparent backdrop-blur-[20px] backdrop-filter border-b border-black sticky top-0 z-50 transition-all ease-in-out duration-[500ms] ${
+        hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
+      } ${menuOpen ? "h-screen" : "h-16"}`}
 
       // Alternative glass navbar styling with white bottom border
-      className={`w-full h-16 flex justify-between items-center px-3 bg-transparent backdrop-blur-[20px] backdrop-filter border-b border-white sticky top-0 z-50 transition-all ease-in-out duration-[500ms] ${
-        hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
-      } ${menuOpen ? "h-screen bg-white" : "h-16"}`}
+      // className={`w-full h-16 flex justify-between items-center px-3 bg-transparent backdrop-blur-[20px] backdrop-filter border-b border-white sticky top-0 z-50 transition-all ease-in-out duration-[500ms] ${
+      //   hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
+      // } ${menuOpen ? "h-screen bg-white" : "h-16"}`}
     >
       <AnimatePresence>
         <motion.div className={menuOpen ? `h-32 w-32 ` : `  h-14 w-14`}>
