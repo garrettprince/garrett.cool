@@ -14,11 +14,11 @@ export default function Card({
   return (
     <Link
       href={link}
-      className="my-3 mr-3 p-6 w-fit min-w-[18rem] max-w-[18rem] h-[28rem] relative overflow-hidden rounded-xl group"
+      className="my-4 mr-3 p-6 w-fit min-w-[18rem] max-w-[18rem] h-[28rem] relative overflow-hidden rounded-xl group"
     >
       {video === true ? (
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover transition-all duration-500 md:group-hover:scale-[1.10] z-[-1] "
+          className="absolute top-0 left-0 w-full h-full object-cover md:hover:bg-white/10 transition-all duration-500 md:group-hover:scale-[1.10] z-[-1]"
           autoPlay
           playsInline
           loop
