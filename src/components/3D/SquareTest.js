@@ -21,12 +21,14 @@ export default function Cube() {
   const edgesMaterial = new THREE.LineBasicMaterial({ color: "black" });
   const edges = new THREE.EdgesGeometry(geometry);
 
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    state.camera.position.x = Math.sin(time) * 3;
-    state.camera.position.z = Math.cos(time) * 3;
-    state.camera.lookAt(0, 0, 0);
-  });
+
+  
+//   useFrame((state) => {
+//     const time = state.clock.getElapsedTime();
+//     state.camera.position.x = Math.sin(time) * 3;
+//     state.camera.position.z = Math.cos(time) * 3;
+//     state.camera.lookAt(0, 0, 0);
+//   });
 
   return (
     <>

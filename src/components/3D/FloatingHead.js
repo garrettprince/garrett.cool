@@ -7,7 +7,7 @@ export default function FloatingHead({ menuOpen }) {
   const { nodes, materials } = useGLTF("./models/facetest3.gltf");
 
   const { scale, position, rotation } = useSpring({
-    scale: menuOpen === true ? 2 : 1,
+    scale: menuOpen === true ? 1 : 1,
     position: menuOpen === true ? [0, -0.3, 0] : [0, -0.3, 0],
     //   rotation: action !== "home" ? [0.5, 0.6, 0] : [0.5, 0.2, 0],
   });
@@ -16,9 +16,7 @@ export default function FloatingHead({ menuOpen }) {
 
   // Subscribe this component to the render-loop, animating the mesh every frame
   useFrame(() => {
-    menuOpen
-      ? (meshRef.current.rotation.y = 0)
-      : (meshRef.current.rotation.y += 0.007);
+    meshRef.current.rotation.y += 0.007;
   });
 
   return (
@@ -28,7 +26,7 @@ export default function FloatingHead({ menuOpen }) {
         polar={[0, 0]} // Restrict vertical rotation
         azimuth={[-Infinity, Infinity]} // Allow horizontal rotation
       >
-        <mesh
+        <animated.mesh
           castShadow
           receiveShadow
           geometry={nodes.FBHead003.geometry}

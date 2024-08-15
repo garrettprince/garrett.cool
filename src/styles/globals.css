@@ -4,13 +4,13 @@
 
 @layer base {
   @font-face {
-    font-family: 'FK Raster Grotesk';
-    src: url('/fonts/FKRasterGrotesk-Smooth.woff2') format('woff2'),
-         url('/fonts/FKRasterGrotesk-Smooth.woff') format('woff');
+    font-family: "FK Raster Grotesk";
+    src: url("/fonts/FKRasterGrotesk-Smooth.woff2") format("woff2"),
+      url("/fonts/FKRasterGrotesk-Smooth.woff") format("woff");
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: "Aeonik Bold";
     src: url("/fonts/aeonik-bold-webfont.woff2") format("woff2"),
@@ -18,7 +18,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: "Aeonik Light";
     src: url("/fonts/aeonik-light-webfont.woff2") format("woff2"),
@@ -26,7 +26,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: "Aeonik";
     src: url("/fonts/aeonik-regular-webfont.woff2") format("woff2"),
@@ -34,15 +34,38 @@
     font-weight: normal;
     font-style: normal;
   }
-  
-
 
   body {
-    font-family: 'Aeonik', sans-serif;
-    background-color: #F1F0EE;
+    font-family: "Aeonik", sans-serif;
+    background-color: #f1f0ee;
+  }
+
+  @keyframes backgroundTransition {
+    0% {
+      background-color: #ff6b6b;
+    }
+    25% {
+      background-color: #4ecdc4;
+    }
+    50% {
+      background-color: #45b7d1;
+    }
+    75% {
+      background-color: #f7d794;
+    }
+    100% {
+      background-color: #ff6b6b;
+    }
+  }
+
+  .smooth-background {
+    animation: backgroundTransition 30s ease infinite;
+  }
+
+  .nav-height-transition {
+    transition: height 0.5s ease-in-out .35s;
   }
 }
-
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
