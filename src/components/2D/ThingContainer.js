@@ -8,7 +8,7 @@ export default function ThingsContainer() {
     <div className="my-20">
       <div className="flex justify-between items-center mx-6">
         <div>
-          <h1 className="text-4xl">Things</h1>
+          <h1 className="text-3xl">Things</h1>
         </div>
         <div className="flex items-center space-x-5">
           <ChevronLeftIcon className="w-7 h-7 cursor-pointer" />

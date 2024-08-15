@@ -32,8 +32,9 @@ export default function Cube() {
 
   return (
     <>
-      <mesh geometry={geometry} material={gradientMaterial} />
-      <lineSegments geometry={edges} material={edgesMaterial} />
+      <mesh geometry={geometry} material={gradientMaterial} position={[0, 0, 10]} />
+      <lineSegments geometry={edges} material={edgesMaterial} position={[0, 0, 2]} />
     </>
   );
 }
+

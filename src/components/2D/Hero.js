@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PresentationControls } from "@react-three/drei";
 import SquareTest from "../3D/SquareTest";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Hero() {
+  const [currentHover, setCurrentHover] = useState("none");
+
   return (
     <div className="h-96">
-      <Canvas>
+      {/* <Canvas>
         <PresentationControls>
           <SquareTest />
         </PresentationControls>
-      </Canvas>
+      </Canvas> */}
       {/* <div className="h-full flex justify-center items-center">
         <div className="border border-black rounded-lg bg-white flex items-center">
           <input
@@ -22,6 +25,39 @@ export default function Hero() {
           </button>
         </div>
       </div> */}
+      <div className="h-full flex flex-col items-center justify-between text-center text-4xl w- mx-auto">
+        <div onClick={() => setCurrentHover("top")}>test</div>
+        <p>
+          Hello! My name is Garrett and I{" "}
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={currentHover}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className={`bg-gradient-to-r ${
+                currentHover === "top"
+                  ? "from-blue-600 to-green-600"
+                  : currentHover === "bottom"
+                  ? "from-red-600 to-orange-600"
+                  : currentHover === "left"
+                  ? "from-purple-600 to-pink-600"
+                  : currentHover === "right"
+                  ? "from-yellow-600 to-teal-600"
+                  : ""
+              } text-transparent bg-clip-text border rounded-xl border-black px-2 py-1`}
+            >
+              {currentHover === "top"
+                ? "make components"
+                : currentHover === "bottom"
+                ? "write"
+                : ""}
+            </motion.span>
+          </AnimatePresence>
+        </p>
+        <div onClick={() => setCurrentHover("bottom")}>test</div>
+      </div>
     </div>
   );
 }
