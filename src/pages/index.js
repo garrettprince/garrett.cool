@@ -9,7 +9,7 @@ export default function Home({ action, setAction }) {
         <Scene action={action} setAction={setAction} />
       </div>
       {/* UI Container */}
-      <div className="flex justify-center pointer-events-none h-full w-full z-50">
+      <div className="flex justify-center pointer-events-none h-full z-50">
         <div className="flex flex-col pointer-events-auto items-center w-full max-w-3xl">
           <UIContainer action={action} setAction={setAction} />
         </div>

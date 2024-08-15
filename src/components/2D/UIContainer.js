@@ -7,7 +7,7 @@ import ThingContainer from "./ThingContainer";
 
 function UIContainer() {
   return (
-    <div className="flex flex-col min-h-xl max-w-3xl mx-auto h-screen">
+    <div className="flex flex-col w-full mx-auto h-screen">
       <Nav />
       <Hero />
       <ThingContainer />
