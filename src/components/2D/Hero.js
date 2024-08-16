@@ -8,12 +8,8 @@ export default function Hero() {
   const [currentHover, setCurrentHover] = useState("none");
 
   return (
-    <div className="h-96">
-      {/* <Canvas>
-        <PresentationControls>
-          <SquareTest />
-        </PresentationControls>
-      </Canvas> */}
+    <div className=" my-20 flex flex-col items-center justify-between">
+   
       {/* <div className="h-full flex justify-center items-center">
         <div className="border border-black rounded-lg bg-white flex items-center">
           <input
@@ -25,7 +21,7 @@ export default function Hero() {
           </button>
         </div>
       </div> */}
-      <div className="h-full flex flex-col items-center justify-between text-center text-4xl w- mx-auto">
+      <div className=" flex flex-col items-center justify-between text-center text-4xl mx-auto space-y-4">
         <div onClick={() => setCurrentHover("top")}>test</div>
         <p>
           Hello! My name is Garrett and I{" "}

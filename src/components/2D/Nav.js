@@ -8,75 +8,41 @@ import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 
 export default function Nav() {
-  const [scrollDirection, setScrollDirection] = useState("up");
   const [hideNav, setHideNav] = useState(false);
-  const [iconColor, setIconColor] = useState("black");
+  const [scrollDirection, setScrollDirection] = useState("up");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [chatStarted, setChatStarted] = useState(false);
-  const iconRef = useRef(null);
-  let scrollTimeout = null;
+  const lastScrollY = useRef(0);
+  const scrollTimeout = useRef(null);
 
-  // Hides navigation bar when scrolling down and waiting 1.5 seconds //
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    const mainContainer = document.querySelector("main");
+    if (!mainContainer) return;
+
+    let lastScrollY = mainContainer.scrollTop;
 
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
+      const currentScrollY = mainContainer.scrollTop;
+
+      if (currentScrollY > lastScrollY) {
         setScrollDirection("down");
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        scrollTimeout = setTimeout(() => {
+        if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+        scrollTimeout.current = setTimeout(() => {
           setHideNav(true);
         }, 1500);
       } else {
         setScrollDirection("up");
-        if (scrollTimeout) clearTimeout(scrollTimeout);
+        if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
         setHideNav(false);
       }
-      lastScrollY = window.scrollY;
+
+      lastScrollY = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    mainContainer.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-    };
-  }, []);
-
-  // TODO: Doesn't work currently
-  // Change icon color based on background color //
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const bgColor = window.getComputedStyle(
-              document.body
-            ).backgroundColor; // Changed to target the body's background color
-            const rgb = bgColor.match(/\d+/g);
-            const brightness = Math.round(
-              (parseInt(rgb[0]) * 299 +
-                parseInt(rgb[1]) * 587 +
-                parseInt(rgb[2]) * 114) /
-                1000
-            );
-            setIconColor(brightness > 125 ? "black" : "white");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    const currentIconRef = iconRef.current;
-    if (currentIconRef) {
-      observer.observe(currentIconRef);
-    }
-
-    return () => {
-      if (currentIconRef) {
-        observer.unobserve(currentIconRef);
-      }
+      mainContainer.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     };
   }, []);
 
@@ -84,19 +50,12 @@ export default function Nav() {
     <motion.div
       className={`w-full flex bg-[#F1F0EE] justify-between items-center px-3 py-1 border-b border-black sticky top-0 z-50 transition-all ease-in-out duration-[500ms] nav-height-transition ${
         hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
-      } ${menuOpen ? "h-screen bg-[#F1F0EE]" : "h-16"}`}
-
-      // Alternative glass navbar styling with white bottom border
-      // className={`w-full h-16 flex justify-between items-center px-3 bg-transparent backdrop-blur-[20px] backdrop-filter border-b border-white sticky top-0 z-50 transition-all ease-in-out duration-[500ms] ${
-      //   hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
-      // } ${menuOpen ? "h-screen bg-white" : "h-16"}`}
+      } ${
+        menuOpen ? "h-screen bg-[#F1F0EE] absolute top-0 left-0 z-100" : "h-16"
+      }`}
     >
       <AnimatePresence>
-        <motion.div
-          className="h-14 w-14"
-          animate={{ x: menuOpen ? -100 : 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="h-14 w-14">
           <Link href="/">
             <Canvas>
               <OrthographicCamera makeDefault position={[0, 0, 4]} zoom={19} />
@@ -114,7 +73,7 @@ export default function Nav() {
               <FloatingHead menuOpen={menuOpen} />
             </Canvas>
           </Link>
-        </motion.div>
+        </div>
       </AnimatePresence>
 
       <AnimatePresence mode="wait">
@@ -125,7 +84,6 @@ export default function Nav() {
           >
             <XMarkIcon
               onClick={() => setMenuOpen(!menuOpen)}
-              ref={iconRef}
               className="h-8 w-8 cursor-pointer"
             />
             <p>test</p>
@@ -140,9 +98,7 @@ export default function Nav() {
           >
             <Bars2Icon
               onClick={() => setMenuOpen(!menuOpen)}
-              ref={iconRef}
               className="h-8 w-8 cursor-pointer"
-              style={{ color: "black" }}
             />
           </motion.div>
         )}
