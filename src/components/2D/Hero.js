@@ -42,7 +42,7 @@ export default function Hero() {
                   : currentHover === "right"
                   ? "from-yellow-600 to-teal-600"
                   : ""
-              } text-transparent bg-clip-text border rounded-xl border-black px-2 py-1`}
+              } text-transparent bg-clip-text border-2 rounded-xl border-black px-2 py-1`}
             >
               {currentHover === "top"
                 ? "make components"

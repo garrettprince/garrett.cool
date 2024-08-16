@@ -17,7 +17,7 @@ export default function Card({
   return (
     <Link
       href={link}
-      className="my-3 mr-3 p-6 w-fit min-w-[18rem] max-w-[18rem] h-[28rem] relative overflow-hidden rounded-xl group border border-black"
+      className="my-3 mr-3 p-6 w-fit min-w-[18rem] max-w-[18rem] h-[28rem] relative overflow-hidden rounded-xl group border-2 border-black"
     >
       {video === true ? (
         <video
@@ -51,7 +51,7 @@ export default function Card({
             textBlack ? "text-black" : "text-white"
           }`}
         >
-          <div className="h-6 bg-white border-black text-black border rounded-md text-center text-sm pt-[0.15rem] px-2">
+          <div className="h-6 bg-white border-black text-black border-2 rounded-md text-center text-sm pt-[0.1rem] px-2">
             {category}
           </div>
           <motion.div

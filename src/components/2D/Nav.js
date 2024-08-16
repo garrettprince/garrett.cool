@@ -48,7 +48,7 @@ export default function Nav() {
 
   return (
     <motion.div
-      className={`w-full flex bg-[#F1F0EE] justify-between items-center px-3 py-1 border-b border-black sticky top-0 z-50 transition-all ease-in-out duration-[500ms] nav-height-transition ${
+      className={`w-full flex bg-[#F1F0EE] justify-between items-center px-3 py-1 border-b-2 border-black sticky top-0 z-50 transition-all ease-in-out duration-[500ms] nav-height-transition ${
         hideNav && !menuOpen ? "-translate-y-full" : "translate-y-0"
       } ${
         menuOpen ? "h-screen bg-[#F1F0EE] absolute top-0 left-0 z-100" : "h-16"
