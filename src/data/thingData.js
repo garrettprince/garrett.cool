@@ -6,7 +6,7 @@ export const thingData = [
     textBlack: true,
     mediaSource:
       "https://res.cloudinary.com/dvwbpgk6p/video/upload/v1723048735/New%20Garrett.cool/Modern%20Player/Screen_Recording_2024-08-06_at_2.59.23_PM_gusedu.mov",
-    link: "/",
+    link: "/data.js",
     category: "Component",
   },
   {

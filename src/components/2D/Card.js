@@ -42,12 +42,17 @@ export default function Card({
           textBlack ? "text-black" : "text-white"
         }`}
       >
-        <div>
+        <div className="relative z-10">
           <p className="text-2xl font-medium mb-">{title}</p>
           <p className="text-sm">{description}</p>
         </div>
         <div
-          className={`flex items-center justify-between ${
+          className={`absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t ${
+            textBlack ? "from-white/80 to-transparent" : "from-black/80 to-transparent"
+          } z-0`}
+        />
+        <div
+          className={`flex items-center justify-between relative z-10 ${
             textBlack ? "text-black" : "text-white"
           }`}
         >
