@@ -17,7 +17,7 @@ export default function Card({
   return (
     <Link
       href={link}
-      className="my-3 mr-3 p-6 w-fit min-w-[18rem] max-w-[18rem] h-[28rem] relative overflow-hidden rounded-xl group border-2 border-black"
+      className="my-3 mr-3 p-6 w-fit min-w-[17rem] max-w-[17rem] h-[26rem] relative overflow-hidden rounded-3xl group   border-t-[1px] border-b-[1px] border-t-[#B3B3B3]/80 border-b-black/20"
     >
       {video === true ? (
         <video
@@ -43,12 +43,12 @@ export default function Card({
         }`}
       >
         <div className="relative z-10">
-          <p className="text-2xl font-medium mb-">{title}</p>
-          <p className="text-sm">{description}</p>
+          <p className="text-2xl font-bold">{title}</p>
+          <p className="text-xs">{description}</p>
         </div>
         <div
           className={`absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t ${
-            textBlack ? "from-white/80 to-transparent" : "from-black/80 to-transparent"
+            textBlack ? "from-white/90 to-transparent" : "from-black/80 to-transparent"
           } z-0`}
         />
         <div
@@ -56,7 +56,7 @@ export default function Card({
             textBlack ? "text-black" : "text-white"
           }`}
         >
-          <div className="h-6 bg-white border-black text-black border-2 rounded-md text-center text-sm pt-[0.1rem] px-2">
+          <div className=" bg-white shadow-sm border-black text-black  rounded-md text-center text-xs pt-[0.175rem] px-2">
             {category}
           </div>
           <motion.div

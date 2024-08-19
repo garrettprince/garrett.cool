@@ -5,9 +5,9 @@ export default function Home({ action, setAction }) {
   return (
     <main className="relative h-screen overflow-y-auto">
       {/* 3D Scene */}
-      <div className="fixed inset-0 z-0">
+      {/* <div className="fixed inset-0 z-0">
         <Scene action={action} setAction={setAction} />
-      </div>
+      </div> */}
       {/* UI Container */}
       <div className="relative z-10 min-h-screen">
         <div className="flex justify-center pointer-events-none h-full">
