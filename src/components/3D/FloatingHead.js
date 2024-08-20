@@ -1,4 +1,4 @@
-import { useGLTF, PresentationControls } from "@react-three/drei";
+import { useGLTF, PresentationControls, Outlines } from "@react-three/drei";
 import { useRef } from "react";
 import { useSpring, animated } from "@react-spring/three";
 import { useFrame } from "@react-three/fiber";
@@ -31,7 +31,9 @@ export default function FloatingHead({ menuOpen }) {
           receiveShadow
           geometry={nodes.FBHead003.geometry}
           material={materials["FBHead.001_preview_mat"]}
-        />
+        >
+          {/* <Outlines thickness={1} color="black" /> */}
+        </animated.mesh>
       </PresentationControls>
     </animated.group>
   );

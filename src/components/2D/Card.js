@@ -17,7 +17,7 @@ export default function Card({
   return (
     <Link
       href={link}
-      className="my-3 mr-3 p-6 w-fit min-w-[17rem] max-w-[17rem] h-[26rem] relative overflow-hidden rounded-3xl group   border-t-[1px] border-b-[1px] border-t-[#B3B3B3]/80 border-b-black/20"
+      className="mt-6 mb-10 mr-3 p-6 w-fit min-w-[17rem] max-w-[17rem] h-[26rem] relative overflow-hidden rounded-3xl group "
     >
       {video === true ? (
         <video
